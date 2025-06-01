@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 
@@ -32,12 +32,15 @@ import WNBATeamDefenseBox from "@/components/wnba/WNBATeamDefenseBox";
 import WNBAVsTeamBox from "@/components/wnba/WNBAVsTeamBox";
 
 export default function PlayerPropsPage() {
-    const [selectedSport, setSelectedSport] = useState("MLB");
+    const [selectedSport, setSelectedSport] = useState<"MLB" | "WNBA">("MLB");
+    const [activeTab, setActiveTab] = useState<"player" | "team">("player");
 
     return (
         <div className="w-full min-h-screen p-6 bg-zinc-900 text-white space-y-6">
             <SportToggleTabs onChange={(sport) => setSelectedSport(sport)} />
-            <ToggleTabs />
+            <ToggleTabs onChange={(tab) => setActiveTab(tab)} />
+
+            <p className="text-sm text-zinc-400">Active tab: {activeTab}</p>
 
             <h1 className="text-3xl font-bold">
                 {selectedSport === "MLB" && "⚾ MLB Player Prop Tracker"}
