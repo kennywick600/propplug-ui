@@ -37,11 +37,16 @@ export default function PlayerPropsPage() {
 
     return (
         <div className="w-full min-h-screen p-6 bg-zinc-900 text-white space-y-6">
-            <SportToggleTabs onChange={(sport) => setSelectedSport(sport)} />
+            {/* Sport selection */}
+            <SportToggleTabs onChange={(sport) => setSelectedSport(sport as "MLB" | "WNBA")} />
+
+            {/* Tab selection */}
             <ToggleTabs onChange={(tab) => setActiveTab(tab)} />
 
+            {/* Debug info */}
             <p className="text-sm text-zinc-400">Active tab: {activeTab}</p>
 
+            {/* Header */}
             <h1 className="text-3xl font-bold">
                 {selectedSport === "MLB" && "⚾ MLB Player Prop Tracker"}
                 {selectedSport === "WNBA" && "🏀 WNBA Player Prop Tracker"}
