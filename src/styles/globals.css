@@ -1,24 +1,47 @@
 /* src/styles/globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global body styling */
 body {
-    @apply bg-zinc-900 text-white antialiased;
+    @apply bg-zinc-900 text-white font-sans antialiased min-h-screen;
 }
 
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-white;
 }
 
-a {
-    @apply text-blue-400 hover:underline;
+/* Section headers */
+.section-title {
+    @apply text-xl font-semibold text-white mb-2 flex items-center gap-2;
 }
 
+/* Table styling */
+table {
+    @apply w-full text-sm text-left border-collapse text-white;
+}
+
+th {
+    @apply bg-zinc-800 text-zinc-300 px-4 py-2 font-semibold border-b border-zinc-700;
+}
+
+td {
+    @apply px-4 py-2 border-b border-zinc-700;
+}
+
+/* Button styling */
 button {
-    @apply px-4 py-2 rounded-md font-medium;
+    @apply bg-zinc-700 text-white px-3 py-1 rounded hover:bg-zinc-600 transition;
 }
 
-.container {
-    @apply mx-auto px-4;
+/* Toggle & tab style helpers */
+.tab-active {
+    @apply bg-white text-zinc-900 font-semibold;
+}
+
+.tab-inactive {
+    @apply bg-zinc-800 text-zinc-400;
 }

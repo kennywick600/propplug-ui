@@ -3,11 +3,11 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
     content: [
-        "./src/**/*.{js,ts,jsx,tsx,mdx}", // must include all src folders
+        './src/**/*.{js,ts,jsx,tsx}', // make sure this matches your folder layout
     ],
     theme: {
         extend: {},
     },
     plugins: [],
 }
-export default config
+export default config;
