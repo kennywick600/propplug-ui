@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import { fetchOdds } from '@/lib/oddsApi';
 import { OddsData } from '@/types/OddsTypes';
 
-export default function WNBAOddsBox() {
+export default function MLBOddsBox() {
     const [odds, setOdds] = useState<OddsData[]>([]);
     const [show, setShow] = useState(true);
 
     useEffect(() => {
         async function load() {
-            const data = await fetchOdds('basketball_wnba');
+            const data = await fetchOdds('baseball_mlb');
             setOdds(data);
         }
         load();
