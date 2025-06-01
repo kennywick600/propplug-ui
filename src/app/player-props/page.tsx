@@ -33,7 +33,9 @@ import WNBAVsTeamBox from "@/components/wnba/WNBAVsTeamBox";
 
 export default function PlayerPropsPage() {
     const [selectedSport, setSelectedSport] = useState("MLB");
-    const [activeTab, setActiveTab] = useState<"player" | "team">("player"); // Not used yet, but needed for future tabs
+
+    // Temporary usage to prevent unused ESLint warning
+    const [_activeTab, _setActiveTab] = useState<"player" | "team">("player");
 
     return (
         <div className="w-full min-h-screen p-6 bg-zinc-900 text-white space-y-6">
@@ -44,9 +46,6 @@ export default function PlayerPropsPage() {
                 {selectedSport === "MLB" && "⚾ MLB Player Prop Tracker"}
                 {selectedSport === "WNBA" && "🏀 WNBA Player Prop Tracker"}
             </h1>
-
-            {/* ⚠️ TEMP FIX for ESLint: Display activeTab just to avoid unused var error */}
-            <p className="text-sm text-zinc-400">Active tab: {activeTab}</p>
 
             {/* ⚾ MLB VIEW */}
             {selectedSport === "MLB" && (
