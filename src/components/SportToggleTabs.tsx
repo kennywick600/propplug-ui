@@ -1,16 +1,19 @@
 ﻿"use client";
 
-const tabs = ["NBA", "MLB", "NHL", "WNBA", "CSGO"];
+type SportToggleTabsProps = {
+    onChange: (sport: string) => void;
+};
 
-export default function ToggleTabs() {
+export default function SportToggleTabs({ onChange }: SportToggleTabsProps) {
     return (
-        <div className="flex gap-4 bg-zinc-800 p-3 rounded-lg justify-center">
-            {tabs.map((tab) => (
+        <div className="flex space-x-4">
+            {["MLB", "WNBA"].map((sport) => (
                 <button
-                    key={tab}
-                    className="px-4 py-1 rounded-full text-sm font-medium border border-zinc-600 hover:bg-zinc-700 transition"
+                    key={sport}
+                    className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600"
+                    onClick={() => onChange(sport)}
                 >
-                    {tab}
+                    {sport}
                 </button>
             ))}
         </div>
