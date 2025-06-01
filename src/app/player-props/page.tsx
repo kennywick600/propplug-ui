@@ -34,9 +34,6 @@ import WNBAVsTeamBox from "@/components/wnba/WNBAVsTeamBox";
 export default function PlayerPropsPage() {
     const [selectedSport, setSelectedSport] = useState("MLB");
 
-    // Temporary usage to prevent unused ESLint warning
-    const [_activeTab, _setActiveTab] = useState<"player" | "team">("player");
-
     return (
         <div className="w-full min-h-screen p-6 bg-zinc-900 text-white space-y-6">
             <SportToggleTabs onChange={(sport) => setSelectedSport(sport)} />
