@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-// 🔄 Sport toggles
+// 🟪 Sport toggles
 import SportToggleTabs from "@/components/SportToggleTabs";
 import ToggleTabs from "@/components/ToggleTabs";
 
@@ -33,18 +33,19 @@ import WNBAVsTeamBox from "@/components/wnba/WNBAVsTeamBox";
 
 export default function PlayerPropsPage() {
     const [selectedSport, setSelectedSport] = useState("MLB");
+    const [activeTab, setActiveTab] = useState<"player" | "team">("player"); // Bonus state
 
     return (
         <div className="w-full min-h-screen p-6 bg-zinc-900 text-white space-y-6">
             <SportToggleTabs onChange={(sport) => setSelectedSport(sport)} />
-            <ToggleTabs />
+            <ToggleTabs onChange={(tab) => setActiveTab(tab)} /> {/* ✅ properly wired */}
 
             <h1 className="text-3xl font-bold">
                 {selectedSport === "MLB" && "⚾ MLB Player Prop Tracker"}
                 {selectedSport === "WNBA" && "🏀 WNBA Player Prop Tracker"}
             </h1>
 
-            {/* 🔁 MLB VIEW */}
+            {/* ⚾ MLB VIEW */}
             {selectedSport === "MLB" && (
                 <>
                     <ProjectionsBox />
@@ -60,7 +61,7 @@ export default function PlayerPropsPage() {
                 </>
             )}
 
-            {/* 🔁 WNBA VIEW */}
+            {/* 🏀 WNBA VIEW */}
             {selectedSport === "WNBA" && (
                 <>
                     <WNBAPlayerHeaderBox />
