@@ -1,13 +1,10 @@
-﻿// tailwind.config.ts
-import type { Config } from 'tailwindcss'
-
-const config: Config = {
+﻿/** @type {import('tailwindcss').Config} */
+module.exports = {
     content: [
-        './src/**/*.{js,ts,jsx,tsx}', // make sure this matches your folder layout
+        "./src/**/*.{js,ts,jsx,tsx}", // include everything in /src
     ],
     theme: {
         extend: {},
     },
     plugins: [],
-}
-export default config;
+};
